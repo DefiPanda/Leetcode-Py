@@ -10,4 +10,3 @@ class Solution:
         if carry == 1:
             digits.insert(0, 1)
         return digits
-        
