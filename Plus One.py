@@ -5,6 +5,8 @@ class Solution:
             sum = digits[i] + carry
             carry = sum / 10
             digits[i] = sum % 10
+            if carry==0:
+                break
         if carry == 1:
             digits.insert(0, 1)
         return digits
