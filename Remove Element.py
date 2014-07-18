@@ -1,7 +1,6 @@
 class Solution:
     def removeElement(self, A, elem):
-        length = len(A)
-        last, i = length - 1, 0
+        last, i = len(A) - 1, 0
         while i <= last:
             if A[i] == elem:
                 A[i], A[last] = A[last], A[i]

@@ -1,12 +1,15 @@
 class Solution:
     def postorderTraversal(self, root):
-        result = []
-        self.recur(root, result)
-        return result
-    
-    def recur(self, root, result):
-        if(root == None):
-            return
-        self.recur(root.left, result)
-        self.recur(root.right, result)
-        result.append(root.val)
+        res, stack, current, prev = [], [], root, None
+        while stack or current:
+            if current:
+                stack.append(current)
+                current = current.left
+            else:
+                parent = stack[-1]
+                if parent.right in (None, prev):
+                    prev = stack.pop()
+                    res.append(prev.val)
+                else:
+                    current = parent.right
+        return res

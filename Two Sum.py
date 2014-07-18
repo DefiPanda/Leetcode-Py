@@ -1,8 +1,7 @@
 class Solution:
-    def twoSum(self, num, target):
-        map = {}
-        for i in range(len(num)):
-            if target - num[i] in map:
-                return (map[target - num[i]] + 1, i + 1)
-            map[num[i]] = i
-        return None
+    def twoSum(self, nums, target):
+        lookup = {}
+        for i, num in enumerate(nums):
+            if target - num in lookup:
+                return (lookup[target - num] + 1, i + 1)
+            lookup[num] = i
