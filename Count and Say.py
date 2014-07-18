@@ -1,15 +1,14 @@
 class Solution:
     def countAndSay(self, n):
-        str = "1"
-        for i in range(1, n):
-            j, length, next = 0, len(str), ""
-            while j < length:
-                last, count = str[j], 0
-                while j < length and str[j] == last:
+        chars = "1"
+        for i in range(n - 1):
+            j, next = 0, ""
+            while j < len(chars):
+                count = 1
+                while j < len(chars) - 1 and chars[j] == chars[j + 1]:
                     j += 1
                     count += 1
-                next += "{0}{1}".format(count, last)
-                if j < length:
-                    last = str[j]
-            str, i = next, i + 1
-        return str
+                next += "{0}{1}".format(count, chars[j])
+                j += 1
+            chars = next
+        return chars

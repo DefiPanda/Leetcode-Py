@@ -1,12 +1,13 @@
 class Solution:
     def preorderTraversal(self, root):
-        result = []
-        self.recur(root, result)
-        return result
-    
-    def recur(self, root, result):
-        if(root == None):
-            return
-        result.append(root.val)
-        self.recur(root.left, result)
-        self.recur(root.right, result)
+        res, stack = [], [root]
+        if root is None:
+            return res
+        while stack:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+            res.append(current.val)
+        return res

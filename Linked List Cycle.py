@@ -1,8 +1,8 @@
 class Solution:
     def hasCycle(self, head):
         fast, slow = head, head
-        while(fast != None and fast.next != None):
+        while fast and fast.next:
             fast, slow = fast.next.next, slow.next
-            if(fast == slow):
+            if fast is slow:
                 return True
         return False

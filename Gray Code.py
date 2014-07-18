@@ -1,3 +1,3 @@
 class Solution:
     def grayCode(self, n):
-        return map(lambda x: (x / 2) ^ x, range(1 << n))
+        return [(x / 2) ^ x for x in range(1 << n)]

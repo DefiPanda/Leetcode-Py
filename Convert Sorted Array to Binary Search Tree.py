@@ -1,12 +1,9 @@
 class Solution:
     def sortedArrayToBST(self, num):
-        return self.buildBST(num, 0, len(num) - 1)
-    
-    def buildBST(self, num, left, right):
-        if left > right:
+        if len(num) == 0:
             return None
-        mid = (left + right) / 2
+        mid = len(num) / 2
         current = TreeNode(num[mid])
-        current.left = self.buildBST(num, left, mid - 1)
-        current.right = self.buildBST(num, mid + 1, right)
+        current.left = self.sortedArrayToBST(num[:mid])
+        current.right = self.sortedArrayToBST(num[mid + 1:])
         return current

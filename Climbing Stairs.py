@@ -1,6 +1,6 @@
 class Solution:
     def climbStairs(self, n):
-        prev, current = 1, 0
-        for i in range(n + 1):
-            prev, current = current, prev + current
+        prev, current = 0, 1
+        for i in range(n):
+            prev, current = current, current + prev
         return current

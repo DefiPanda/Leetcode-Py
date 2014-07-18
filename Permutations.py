@@ -1,10 +1,10 @@
 class Solution:
-    def permute(self, num):
+    def permute(self, nums):
         solutions = [[]]
-        for number in num:
+        for num in nums:
             next = []
             for solution in solutions:
                 for i in range(len(solution) + 1):
-                    next.append(solution[:i] + [number] + solution[i:])
+                    next.append(solution[:i] + [num] + solution[i:])
             solutions = next
         return solutions

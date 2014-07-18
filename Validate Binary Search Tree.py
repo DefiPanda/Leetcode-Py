@@ -1,10 +1,10 @@
 class Solution:
     def isValidBST(self, root):
-        return self.isValidBSTRecur(root, 2147483647, -2147483648)
+        return self.isValidBSTRecur(root, 9223372036854775807, -9223372036854775808)
         
-    def isValidBSTRecur(self, root, max, min):
-        if root == None:
+    def isValidBSTRecur(self, root, upper, lower):
+        if root is None:
             return True
-        if root.val <= min or root.val >= max:
+        if root.val <= lower or root.val >= upper:
             return False
-        return self.isValidBSTRecur(root.left, root.val, min) and self.isValidBSTRecur(root.right, max, root.val)
+        return self.isValidBSTRecur(root.left, root.val, lower) and self.isValidBSTRecur(root.right, upper, root.val)

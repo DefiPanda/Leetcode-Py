@@ -1,16 +1,16 @@
 class Solution:
     def connect(self, root):
-        if root == None:
+        if root is None:
             return root
         current = [root]
-        while len(current) > 0:
+        while current:
             next = []
             for i in range(len(current)):
-                this_node = current[i]
                 if i < len(current) - 1:
-                    this_node.next = current[i+1]
-                if this_node.left != None:
-                    next.append(this_node.left)
-                if this_node.right != None:
-                    next.append(this_node.right)
+                    current[i].next = current[i + 1]
+                if current[i].left is not None:
+                    next.append(current[i].left)
+                if current[i].right is not None:
+                    next.append(current[i].right)
             current = next
+        return root

@@ -1,9 +1,6 @@
 class Solution:
-    def getRow(self, numRows):
+    def getRow(self, rowIndex):
         result = [1]
-        for i in range(1, numRows + 1):
-            current = [1]
-            for j in range(1, i):
-                current.append(result[j] + result[j - 1])
-            result = current + [1]
+        for i in range(1, rowIndex + 1):
+            result = [1] + [result[j - 1] + result[j] for j in range(1, i)] + [1]
         return result

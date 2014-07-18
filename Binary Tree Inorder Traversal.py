@@ -1,12 +1,12 @@
 class Solution:
     def inorderTraversal(self, root):
-        result = []
-        self.recur(root, result)
-        return result
-    
-    def recur(self, root, result):
-        if(root == None):
-            return
-        self.recur(root.left, result)
-        result.append(root.val)
-        self.recur(root.right, result)
+        res, stack, current = [], [], root
+        while stack or current:
+            if current:
+                stack.append(current)
+                current = current.left
+            else:
+                parent = stack.pop()
+                res.append(parent.val)
+                current = parent.right
+        return res
