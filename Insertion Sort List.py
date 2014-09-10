@@ -1,6 +1,14 @@
 class Solution:
+    def isListAllSorted(self, head):
+        current = head
+        while current and current.next:
+            if current.val > current.next.val:
+                return False
+            current = current.next
+        return True
+            
     def insertionSortList(self, head):
-        if head == None:
+        if head == None or self.isListAllSorted(head):
             return head
         dummy = ListNode(-9223372036854775808)
         dummy.next = head
