@@ -10,7 +10,7 @@ class Solution:
         return f[m]
 
 class Solution:
-    ''' The alternative solution is to use a 2D array.
+    ''' The original solution is to use a 2D array.
     '''
     def numDistinct(self, S, T):
         ways = [[0 for j in range(len(S) + 1)] for i in range(len(T) + 1)]
