@@ -4,7 +4,6 @@ class Solution:
         f = [False for _ in xrange(n)]
         trace = [[False] * n for _ in xrange(n)]
         for i in xrange(n):
-            trace.append([])
             if s[:i+1] in dict:
                 f[i] = True
                 trace[0][i] = True
