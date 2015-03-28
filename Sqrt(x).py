@@ -1,10 +1,10 @@
 class Solution:
     def sqrt(self, x):
-        low, high = 0, x / 2 + 1
-        while high >= low:
-            mid = (high + low) / 2
-            if x < mid * mid:
-                high = mid - 1
-            else:
-                low = mid + 1
-        return int(high)
+        if x <= 1:
+            return x;
+        y0 = x >> 1
+        y = (y0 + x / y0) >> 1
+        while y < y0:
+            y0 = y
+            y = (y0 + x / y0) >> 1
+        return min(y, y0)
